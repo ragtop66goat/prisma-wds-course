@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: prisma_wds_course
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: md5
+      POSTGRES_DB: prisma_db
+      POSTGRES_USER: prisma_db_user
+      POSTGRES_PASSWORD: prisma_user_pwd
+    ports:
+      - "43306:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
